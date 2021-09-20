@@ -16,7 +16,7 @@ RUN apk update && \
 WORKDIR /go/src
 
 # Clone repo
-RUN git clone https://github.com/bryan-nice/git-issue-creation.git
+RUN git clone https://github.com/SJcanCode/gitactions-git-issue-creation.git
 
 # Checkout to target branch and if not master, then locally test
 # merging master into branch.
