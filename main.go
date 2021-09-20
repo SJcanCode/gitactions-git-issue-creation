@@ -40,10 +40,10 @@ func main() {
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: gitHubToken},
 	)
-	tc := oauth2.NewClient(ctx, ts)
-
-	//client := github.NewClient(tc)
-	client := github.NewEnterpriseClient("https://api.gitserver01.github.local/", "https://uploads.gitserver01.github.local/", tc)
+	//tc := oauth2.NewClient(ctx, ts)
+	tc := oauth2.NewEnterpriseClient("https://api.gitserver01.github.local/","https://uploads.gitserver01.github.local/", ctx, ts)
+	client := github.NewClient(tc)
+	//client := github.NewEnterpriseClient("https://api.gitserver01.github.local/", "https://uploads.gitserver01.github.local/", tc)
 
 	// Search issues to check if it exists already for a specific commit SHA
 	searchResults, _, err := client.Search.Issues(ctx, searchString, nil)
